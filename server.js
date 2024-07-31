@@ -2,7 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { Text2ImageAPI } from './index.js'; // Импортируйте ваш класс Text2ImageAPI
 
-
 const app = express();
 const port = 3000;
 

@@ -72,6 +72,7 @@ export class Text2ImageAPI {
     const uuid = await api.generate("Язык программирования JavaScript", modelId, 1, 1024, 1024, 1);
     const images = await api.checkGeneration(uuid);
     const base64String = images[0]; // Получаем код изображения
+    
 
     // Преобразование строки base64 в бинарные данные
     const base64Data = base64String.replace(/data: image\/\w+;base64,/, '');

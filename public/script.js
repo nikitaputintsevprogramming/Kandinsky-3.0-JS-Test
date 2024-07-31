@@ -1,4 +1,5 @@
 document.getElementById('generate').addEventListener('click', async () => {
+    document.getElementById('desc').innerHTML = `<p>Генерация... (примерно 20-30 сек)</p>`;
     const prompt = document.getElementById('prompt').value;
     if (!prompt) {
         alert('Please enter a prompt');
@@ -12,6 +13,7 @@ document.getElementById('generate').addEventListener('click', async () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ prompt }),
+            
         });
 
         if (!response.ok) {
@@ -22,6 +24,7 @@ document.getElementById('generate').addEventListener('click', async () => {
         const imageUrl = `data:image/jpeg;base64,${result.image}`;
         
         document.getElementById('output').innerHTML = `<img src="${imageUrl}" alt="Generated Image" />`;
+        document.getElementById('desc').innerHTML = `<p>Картинка загружена!</p>`;
     } catch (error) {
         console.error('Error:', error);
         alert('An error occurred while generating the image');
